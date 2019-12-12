@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/mydb" 
+		auth="container"
+		type="javax.sql.DataSource" 
+		driverClassName="org.gjt.mm.mysql.Driver"
+		url="jdbc:mysql://localhost:3306/mydb" 
+		username="root"
+		password="mirim2" 
+		maxActive="20" maxIdle="10" maxWait="-1" />
+</Context>
+
+<!-- Resource : 자원 - CPU 등등을 의미
+	시작은 무조건 Resource임
+	관리자 : container DataSource 에서 connection을 가져옴. 매개체 역할 
+		위 정보를 pull 에 저장, jdbc/mydb 가 pool이 됨. 
+		maxActive : 서버 시작할 때 한 번, 최대 20개의 pool을 만듦. 
+		maxIdle : 접속자가 없을 때 10개의 pool을 죽여놓음. 쉬는 Resource 를 Idle 라고 함. 
+		maxWait="-1"은 20개의 pool을 다 사용했을 때 더 사용하고자 하는 것이 없을 때, 누군가 반활할 때까지 기다림을 의미함.
+ -->
